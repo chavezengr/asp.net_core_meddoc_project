@@ -1,0 +1,15 @@
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\bin\Debug\net8.0\ApplicationCore.deps.json
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\bin\Debug\net8.0\ApplicationCore.dll
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\bin\Debug\net8.0\ApplicationCore.pdb
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\bin\Debug\net8.0\Domain.dll
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\bin\Debug\net8.0\Domain.pdb
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.csproj.CopyComplete
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.dll
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\refint\ApplicationCore.dll
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ApplicationCore.pdb
+C:\Users\joera\Desktop\Develop\_b_react_native\wehealth_api\wehealth\Application\obj\Debug\net8.0\ref\ApplicationCore.dll
