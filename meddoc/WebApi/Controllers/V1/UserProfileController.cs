@@ -20,32 +20,32 @@ namespace WebApi.Controllers.V1
         [HttpPost]
         public async Task<IActionResult> CreateUserProfiles([FromBody] UserProfileRequest userProfileRequest)
         {
-            var requestUserProfile = _mapper.Map<CreateUserProfileCommand>(userProfileRequest);
-            var responseUserProfile = await _mediator.Send(requestUserProfile);
-            var userProfile = _mapper.Map<UserProfileResponse>(responseUserProfile);
+            var userProfileCommand = _mapper.Map<CreateUserProfileCommand>(userProfileRequest);
+            var userProfile = await _mediator.Send(userProfileCommand);
+            var userProfileResponse = _mapper.Map<UserProfileResponse>(userProfile);
 
-            return CreatedAtAction(nameof(GetUserProfileById), new {id = responseUserProfile.UserId}, userProfile);
+            return CreatedAtAction(nameof(GetUserProfileById), new {id = userProfile.UserId}, userProfileResponse);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUserProfiles()
         {
-            var requestUserProfiles = new GetAllUserProfilesQuery();
-            var responseUserProfiles = await _mediator.Send(requestUserProfiles);
-            var userProfiles = _mapper.Map<List<UserProfileResponse>>(responseUserProfiles);
+            var userProfilesQuery = new GetAllUserProfilesQuery();
+            var userProfiles = await _mediator.Send(userProfilesQuery);
+            var userProfilesResponse = _mapper.Map<List<UserProfileResponse>>(userProfiles);
 
-            return (IActionResult)Task.FromResult(Ok(userProfiles));
+            return Ok(userProfilesResponse);
         }
 
         [HttpGet]
-        [Route(ApiRoutes.UserProfile.GetUserProfileById)]
-        public async Task<IActionResult> GetUserProfileById(string userId)
+        [Route(ApiRoutes.UserProfiles.IdRoute)]
+        public async Task<IActionResult> GetUserProfileById(string id)
         {
-            var requestUserProfile = _mapper.Map<GetUserProfileByIdQuery>(userId);
-            var responseUserProfile = await _mediator.Send(requestUserProfile);
-            var userProfile = _mapper.Map<UserProfileResponse>(responseUserProfile);
+            var userProfileByIdQuery = _mapper.Map<GetUserProfileByIdQuery>(Guid.Parse(id));
+            var userProfile = await _mediator.Send(userProfileByIdQuery);
+            var userProfileResponse = _mapper.Map<UserProfileResponse>(userProfile);
 
-            return (IActionResult)Task.FromResult(Ok(userProfile));
+            return Ok(userProfileResponse);
         }
 
     }

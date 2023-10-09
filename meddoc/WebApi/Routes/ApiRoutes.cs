@@ -6,17 +6,12 @@
 
         public class UserProfiles
         {
-            public const string IdRoute = "id";
+            public const string IdRoute = "{id}";
         }
 
         public class Posts
         {
             public const string GetById = "{id}";
-        }
-
-        public class UserProfile
-        {
-            public const string GetUserProfileById = "{id}";
         }
     }
 }

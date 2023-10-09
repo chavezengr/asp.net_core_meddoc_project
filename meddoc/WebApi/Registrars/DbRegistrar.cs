@@ -1,7 +1,9 @@
 ﻿
 
 
+using ApplicationCore.Abstractions;
 using DataAccess;
+using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Registrars.Abstractions;
 
@@ -13,6 +15,8 @@ namespace WebApi.Registrars
         {
             var cs = builder.Configuration.GetConnectionString("Default");
             builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(cs));
+            builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+            builder.Services.AddScoped<IPostRepository, PostRepository>();
         }
     }
 }

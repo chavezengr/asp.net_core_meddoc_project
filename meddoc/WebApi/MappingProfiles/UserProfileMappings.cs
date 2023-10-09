@@ -12,9 +12,14 @@ namespace WebApi.MappingProfiles
     {
         public UserProfileMappings()
         {
-            CreateMap<UserProfileRequest, CreateUserProfileCommand>();
-            CreateMap<UserProfile, UserProfileResponse>();
-            CreateMap<BasicInfo, BasicInfoResponse>();
+            CreateMap<UserProfileRequest, CreateUserProfileCommand>()
+                .ForMember(upc => upc.BasicInfo, src => src.MapFrom(upr => upr.BasicInfo));
+            CreateMap<UserProfile, UserProfileRequest>()
+                .ForMember(upr => upr.BasicInfo, src => src.MapFrom(up => up.BasicInfo));
+            CreateMap<UserProfile, UserProfileResponse>()
+                .ForMember(upr => upr.BasicInfo, src => src.MapFrom(up => up.BasicInfo));
+            CreateMap<BasicInfo, BasicInfoResponse>().ReverseMap();
+            CreateMap<BasicInfo, BasicInfoRequest>().ReverseMap();
         }
     }
 }
