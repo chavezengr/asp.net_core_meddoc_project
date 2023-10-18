@@ -1,8 +1,10 @@
 ﻿using ApplicationCore.UserProfiles.Commands;
 using ApplicationCore.UserProfiles.Queries;
 using AutoMapper;
+using Domain.Aggregates.UserProfileAggregate;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using WebApi.Contracts.UserProfile.Requests;
 using WebApi.Contracts.UserProfile.Responses;
 using WebApi.Routes;
@@ -48,5 +50,26 @@ namespace WebApi.Controllers.V1
             return Ok(userProfileResponse);
         }
 
+        [HttpPut]
+        [Route(ApiRoutes.UserProfiles.IdRoute)]
+        public async Task<IActionResult> UpdateUserProfile(string id, UserProfileRequest userProfileRequest)
+        {
+            var userBasicInfoCommand = _mapper.Map<UpdateUserBasicInfoCommand>(userProfileRequest);
+            userBasicInfoCommand.UserId = Guid.Parse(id);
+            var userProfile = await _mediator.Send(userBasicInfoCommand);
+            var userProfileResponse = _mapper.Map<UserProfileResponse>(userProfile);
+
+            return Ok(userProfileResponse);
+        }
+
+        [HttpDelete]
+        [Route(ApiRoutes.UserProfiles.IdRoute)]
+        public async Task<IActionResult> DeleteUserProfile(string id)
+        {
+            var userProfileCommand = new DeleteUserProfileCommand() { UserId = Guid.Parse(id) };
+            await _mediator.Send(userProfileCommand);
+
+            return NoContent();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using WebApi.Middleware;
 using WebApi.Registrars.Abstractions;
 
 namespace WebApi.Registrars
@@ -24,6 +25,8 @@ namespace WebApi.Registrars
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
             app.MapControllers();
         }

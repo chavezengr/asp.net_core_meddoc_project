@@ -5,6 +5,7 @@ using ApplicationCore.Abstractions;
 using DataAccess;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
+using WebApi.Middleware;
 using WebApi.Registrars.Abstractions;
 
 namespace WebApi.Registrars
@@ -17,6 +18,8 @@ namespace WebApi.Registrars
             builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(cs));
             builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
             builder.Services.AddScoped<IPostRepository, PostRepository>();
+
+            builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
         }
     }
 }
